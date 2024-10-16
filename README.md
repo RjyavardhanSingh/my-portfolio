@@ -11,7 +11,7 @@ You can view the live demo of my portfolio [here](https://rjyavardhansingh.githu
 - **Vite**: A fast development build tool for modern web projects.
 - **React**: A JavaScript library for building user interfaces.
 - **Tailwind CSS**: A utility-first CSS framework for styling.
-- **Aeternity UI**: A set of UI components for building user interfaces ([Aeternity UI](https://ui.aceternity.com/)).
+- **Aceternity UI**: A set of UI components for building user interfaces ([Aceternity UI](https://ui.aceternity.com/)).
 - **EmailJS**: A service to send emails directly from JavaScript.
 
 ## Features
