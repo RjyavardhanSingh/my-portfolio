@@ -1,49 +1,47 @@
 import React, { useState } from 'react';
+import { send } from 'emailjs-com';
 import { ShootingStars } from '../components/ui/Shooting-Stars';
 import { StarsBackground } from '../components/ui/Stars-Background';
 
 export function FeedbackSection() {
   const [formData, setFormData] = useState({
-    name: '',
+    from_name: '',
     email: '',
     contact: '',
-    suggestion: ''
+    suggestion: '',
+    to_name: 'Recipient Name'
   });
 
-  const [loading, setLoading] = useState(false); // For button loading state
+  const [loading, setLoading] = useState(false);
+
+  const serviceID = 'service_4b6017t';
+  const templateID = 'template_3mf377i';
+  const userID = 'DJZd7dBwRmWEgEjAw';
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value
-    });
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      [name]: value,
+    }));
   };
 
-  // Feedback submission function
-  const submitFeedback = async (formData) => {
+  const submitFeedback = async () => {
     try {
       setLoading(true);
-      const response = await fetch('https://backend-54mis59np-raj-vs-projects.vercel.app', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
-      const data = await response.json();
-      alert(data.message); // Show success message
+      await send(serviceID, templateID, formData, userID);
+      alert('Feedback submitted successfully!');
     } catch (error) {
       console.error('Error submitting feedback:', error);
       alert('Error submitting feedback. Please try again later.');
     } finally {
-      setLoading(false); // Reset loading state after submission
+      setLoading(false);
     }
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    submitFeedback(formData); 
+    submitFeedback();
   };
 
   return (
@@ -56,12 +54,12 @@ export function FeedbackSection() {
       <div className="relative z-10 w-full max-w-lg p-8 bg-transparent">
         <form onSubmit={handleSubmit} className="flex flex-col space-y-4">
           <div className="flex flex-col">
-            <label htmlFor="name" className="text-white text-lg">Name</label>
+            <label htmlFor="from_name" className="text-white text-lg">Name</label>
             <input
               type="text"
-              id="name"
-              name="name"
-              value={formData.name}
+              id="from_name"
+              name="from_name"
+              value={formData.from_name}
               onChange={handleInputChange}
               className="p-2 mt-2 text-white bg-transparent border border-white rounded-lg outline-none focus:ring-2 focus:ring-emerald-500"
               required
@@ -107,7 +105,7 @@ export function FeedbackSection() {
           <button
             type="submit"
             className={`w-full p-3 mt-4 text-lg font-semibold text-white bg-emerald-500 rounded-lg hover:bg-emerald-600 transition duration-300 ${loading ? 'opacity-50 cursor-not-allowed' : ''}`}
-            disabled={loading} // Disable button while submitting
+            disabled={loading}
           >
             {loading ? 'Submitting...' : 'Submit'}
           </button>
