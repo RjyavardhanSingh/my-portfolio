@@ -42,7 +42,7 @@ export function AboutSection() {
         <div className="bg-neutral-800 text-white w-auto sm:w-[20rem] h-auto rounded-xl p-6 border border-neutral-700">
           <h3 className="text-lg font-bold mb-2">My Education</h3>
           <p className="text-neutral-400 text-sm mb-4">
-            I graduated from JK Lakshmipat University with a focus on Computer Science and Engineering.
+            Undergrad from JK Lakshmipat University with a focus on Computer Science and Engineering.
           </p>
           <div className="flex justify-start space-x-4">
             <FaHtml5 className="text-orange-600 text-2xl" />
