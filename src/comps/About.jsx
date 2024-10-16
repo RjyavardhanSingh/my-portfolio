@@ -20,7 +20,7 @@ export function AboutSection() {
       <div className="relative z-10 w-full max-w-md px-4 text-center sm:hidden">
         <h2 className="text-white text-2xl font-bold mb-4">About Me</h2>
         <p className="text-neutral-300 text-lg mb-4">
-          I graduated from JK Lakshmipat University with a focus on Computer Science and Engineering. I'm passionate about front-end development, blockchain technology, and AI-powered applications. I also enjoy coding, traveling, and learning new technologies in my free time.
+          undergraduate from JK Lakshmipat University with a focus on Computer Science and Engineering. I'm passionate about front-end development, blockchain technology, and AI-powered applications. I also enjoy coding, traveling, and learning new technologies in my free time.
         </p>
 
         {/* Skills section */}
@@ -42,7 +42,7 @@ export function AboutSection() {
         <div className="bg-neutral-800 text-white w-auto sm:w-[20rem] h-auto rounded-xl p-6 border border-neutral-700">
           <h3 className="text-lg font-bold mb-2">My Education</h3>
           <p className="text-neutral-400 text-sm mb-4">
-            Undergrad from JK Lakshmipat University with a focus on Computer Science and Engineering.
+            Undergraduate from JK Lakshmipat University with a focus on Computer Science and Engineering.
           </p>
           <div className="flex justify-start space-x-4">
             <FaHtml5 className="text-orange-600 text-2xl" />
