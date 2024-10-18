@@ -6,6 +6,7 @@ import { AboutSection } from "./comps/About";
 import { ProjectSection } from "./comps/Project";
 import { FeedbackSection } from "./comps/FeedbackSection";
 import Footer from "./comps/Footer";
+import { motion } from "framer-motion";
 
 export default function App() {
   const [paused, setPaused] = useState(false);
@@ -39,13 +40,54 @@ export default function App() {
     }
   };
 
+  const fadeInVariant = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 1 } }
+  };
+
+  // Floating animation for the profile picture
+  const floatingAnimation = {
+    hidden: { y: 0 },
+    visible: {
+      y: [0, -10, 0], // Float up and down
+      transition: {
+        repeat: Infinity,
+        repeatType: "mirror",
+        duration: 3,
+      },
+    },
+  };
+
   return (
     <div className="relative">
       <NavBar onScrollToSection={handleScrollToSection} />
 
-      <section id="home-section" className="relative flex h-screen">
+      {/* Home Section */}
+      <motion.section
+        id="home-section"
+        className="relative flex h-screen"
+        initial="hidden"
+        animate="visible"
+        variants={fadeInVariant}
+      >
         <ShootingStarsAndStarsBackgroundDemo />
-        <div className="absolute inset-y-0 left-0 z-10 flex items-center w-full p-8 lg:w-3/5 lg:justify-start lg:text-left">
+
+        {isMobile && (
+          <motion.div
+            className="absolute top-40 left-0 right-0 flex justify-center z-10"
+            initial="hidden"
+            animate="visible"
+            variants={floatingAnimation}
+          >
+            <img
+              src="./pfp.jpeg" 
+              alt="Profile"
+              className="w-32 h-32 rounded-full" 
+            />
+          </motion.div>
+        )}
+
+        <div className="absolute inset-y-0 left-0 z-10 flex items-center w-full p-8 lg:w-3/5 lg:justify-start lg:text-left mt-32"> {/* Added mt-32 for spacing below the profile picture */}
           <div
             className={`transition-opacity ease-out duration-1000 ${
               showText ? "opacity-100" : "opacity-0"
@@ -56,24 +98,46 @@ export default function App() {
             </p>
           </div>
         </div>
+
         {!isMobile && (
           <div className="absolute inset-y-0 right-0 z-10 flex items-center justify-center w-2/5 p-8">
             <ThreeDCardDemo />
           </div>
         )}
-      </section>
+      </motion.section>
 
-      <section id="about-section" className="relative flex h-screen">
+      {/* About Section */}
+      <motion.section
+        id="about-section"
+        className="relative flex h-screen"
+        initial="hidden"
+        animate="visible"
+        variants={fadeInVariant}
+      >
         <AboutSection />
-      </section>
+      </motion.section>
 
-      <section id="projects-section" className="relative flex h-screen bg-gray-800">
+      {/* Projects Section */}
+      <motion.section
+        id="projects-section"
+        className="relative flex h-screen bg-gray-800"
+        initial="hidden"
+        animate="visible"
+        variants={fadeInVariant}
+      >
         <ProjectSection />
-      </section>
+      </motion.section>
 
-      <section id="feedback-section" className="relative flex h-screen bg-gray-700">
+      {/* Feedback Section */}
+      <motion.section
+        id="feedback-section"
+        className="relative flex h-screen bg-gray-700"
+        initial="hidden"
+        animate="visible"
+        variants={fadeInVariant}
+      >
         <FeedbackSection />
-      </section>
+      </motion.section>
 
       <Footer />
     </div>

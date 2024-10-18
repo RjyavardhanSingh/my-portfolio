@@ -13,10 +13,9 @@ const NavBar = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // Ensure the navbar stays visible on mobile screens
   useEffect(() => {
     if (isMobile) {
-      setIsVisible(true); // Always visible on small screens
+      setIsVisible(true);
     }
   }, [isMobile]);
 
@@ -49,12 +48,11 @@ const NavBar = () => {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-20 flex items-center p-4 transition-all duration-300 shadow-lg ${
-        isHome ? "bg-transparent" : "bg-transparent"
+        isHome ? "bg-transparent" : "bg-black"
       } ${isVisible ? "opacity-100" : "opacity-0"} transition-opacity duration-500`}
     >
       {isMobile ? (
         <>
-          <img src="./pfp.jpeg" alt="Profile" className="h-10 w-10 rounded-full mr-4" />
           <div className="flex-grow text-center">
             <div className="flex justify-center space-x-4">
               <a
@@ -115,24 +113,26 @@ const NavBar = () => {
           </div>
         </div>
       )}
-      {isMobileMenuOpen && isMobile && (
-        <div className="absolute top-16 right-0 bg-transparent p-4">
-          <div className="flex flex-col items-end space-y-2">
-            <div onClick={() => handleScroll("home-section")} className="text-white font-mono text-lg hover:text-gray-300 cursor-pointer bg-transparent">
-              Home
-            </div>
-            <div onClick={() => handleScroll("about-section")} className="text-white font-mono text-lg hover:text-gray-300 cursor-pointer bg-transparent">
-              About
-            </div>
-            <div onClick={() => handleScroll("projects-section")} className="text-white font-mono text-lg hover:text-gray-300 cursor-pointer bg-transparent">
-              Projects
-            </div>
-            <div onClick={() => handleScroll("feedback-section")} className="text-white font-mono text-lg hover:text-gray-300 cursor-pointer bg-transparent">
-              Contact Me
+      <div className={`transition-all duration-300 ${isMobileMenuOpen ? 'h-auto' : 'h-0 overflow-hidden'}`}>
+        {isMobileMenuOpen && isMobile && (
+          <div className="absolute top-16 right-0 bg-transparent p-4">
+            <div className="flex flex-col items-end space-y-2">
+              <div onClick={() => handleScroll("home-section")} className="text-white font-mono text-lg hover:text-gray-300 cursor-pointer bg-transparent">
+                Home
+              </div>
+              <div onClick={() => handleScroll("about-section")} className="text-white font-mono text-lg hover:text-gray-300 cursor-pointer bg-transparent">
+                About
+              </div>
+              <div onClick={() => handleScroll("projects-section")} className="text-white font-mono text-lg hover:text-gray-300 cursor-pointer bg-transparent">
+                Projects
+              </div>
+              <div onClick={() => handleScroll("feedback-section")} className="text-white font-mono text-lg hover:text-gray-300 cursor-pointer bg-transparent">
+                Contact Me
+              </div>
             </div>
           </div>
-        </div>
-      )}
+        )}
+      </div>
     </nav>
   );
 };
