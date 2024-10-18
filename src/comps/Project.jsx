@@ -53,7 +53,7 @@ export function ProjectSection() {
           className="absolute left-4 text-white bg-transparent hover:bg-gray-700 rounded-full p-2"
           onClick={prevProject}
         >
-          &#10094; {/* Left Arrow */}
+          &#10094; 
         </button>
 
         <MouseEnterProvider>
@@ -92,7 +92,7 @@ export function ProjectSection() {
           className="absolute right-4 text-white bg-transparent hover:bg-gray-700 rounded-full p-2"
           onClick={nextProject}
         >
-          &#10095; {/* Right Arrow */}
+          &#10095; 
         </button>
       </div>
     </section>

@@ -3,6 +3,8 @@ import { MouseEnterProvider } from '../components/ui/3D-Card';
 import { CardContainer, CardBody, CardItem } from '../components/ui/3D-Card';
 
 export function ThreeDCardDemo() {
+  
+
   return (
     <MouseEnterProvider>
       <CardContainer className="inter-var">

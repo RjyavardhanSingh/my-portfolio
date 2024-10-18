@@ -1,11 +1,11 @@
-// 3d-card.jsx
+
 import React, { createContext, useState, useContext, useRef, useEffect } from 'react';
 import { cn } from '../../utils/cn';
 
-// Create context
+
 const MouseEnterContext = createContext();
 
-// Context provider
+
 export const MouseEnterProvider = ({ children }) => {
   const [isMouseEntered, setIsMouseEntered] = useState(false);
 
@@ -16,7 +16,7 @@ export const MouseEnterProvider = ({ children }) => {
   );
 };
 
-// Custom hook
+
 export const useMouseEnter = () => {
   const context = useContext(MouseEnterContext);
   if (context === undefined) {

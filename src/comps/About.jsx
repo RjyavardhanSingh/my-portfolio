@@ -8,7 +8,7 @@ import { StarsBackground } from "../components/ui/Stars-Background";
 export function AboutSection() {
   const fadeIn = {
     hidden: { opacity: 0 },
-    visible: { opacity: 1, transition: { duration: 1.5 } }, // Removed delay
+    visible: { opacity: 1, transition: { duration: 1.5 } }, 
   };
 
   const cardFadeIn = {
@@ -26,7 +26,7 @@ export function AboutSection() {
         <StarsBackground />
       </div>
 
-      {/* About Section - Mobile View */}
+     
       <motion.div
         className="relative z-10 w-full max-w-md px-4 text-center sm:hidden"
         initial="hidden"
@@ -39,14 +39,14 @@ export function AboutSection() {
         </p>
       </motion.div>
 
-      {/* About Section - Large Screen View */}
+   
       <div className="hidden sm:flex sm:flex-row sm:space-x-8 w-full justify-center items-center">
-        {/* Card 1 */}
+     
         <motion.div
           className="bg-neutral-800 text-white w-auto sm:w-[20rem] h-auto rounded-xl p-6 border border-neutral-700"
           initial="hidden"
           animate="visible"
-          variants={cardFadeIn} // Added fade-in animation to cards
+          variants={cardFadeIn} 
         >
           <h3 className="text-lg font-bold mb-2">My Education</h3>
           <p className="text-neutral-400 text-sm mb-4">
@@ -54,12 +54,12 @@ export function AboutSection() {
           </p>
         </motion.div>
 
-        {/* Card 2 */}
+     
         <motion.div
           className="bg-neutral-800 text-white w-auto sm:w-[20rem] h-auto rounded-xl p-6 border border-neutral-700"
           initial="hidden"
           animate="visible"
-          variants={cardFadeIn} // Added fade-in animation to cards
+          variants={cardFadeIn} 
         >
           <h3 className="text-lg font-bold mb-2">My Area of Interest</h3>
           <p className="text-neutral-400 text-sm mb-4">
@@ -67,12 +67,12 @@ export function AboutSection() {
           </p>
         </motion.div>
 
-        {/* Card 3 */}
+    
         <motion.div
           className="bg-neutral-800 text-white w-auto sm:w-[20rem] h-auto rounded-xl p-6 border border-neutral-700"
           initial="hidden"
           animate="visible"
-          variants={cardFadeIn} // Added fade-in animation to cards
+          variants={cardFadeIn} 
         >
           <h3 className="text-lg font-bold mb-2">My Hobbies</h3>
           <p className="text-neutral-400 text-sm mb-4">
@@ -81,7 +81,7 @@ export function AboutSection() {
         </motion.div>
       </div>
 
-      {/* Skills Section */}
+    
       <motion.div
         className="mt-8 text-white text-center"
         initial="hidden"
@@ -90,7 +90,7 @@ export function AboutSection() {
       >
         <h3 className="text-2xl font-bold mb-4">Skills</h3>
         <div className="flex justify-center space-x-4">
-          {/* Only animate logos */}
+        
           <motion.div whileHover={{ scale: 1.1 }}>
             <FaGithub className="text-black text-3xl" />
           </motion.div>
