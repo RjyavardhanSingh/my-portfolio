@@ -1,0 +1,39 @@
+[
+    {
+      "title": "Event Management System",
+      "description": "This project is an Event Management System built using Java, Maven, JDBC, and JavaFX. It allows users to create and manage events, register participants, and handle event logistics.",
+      "image": "./project_image.jpg",
+      "link": "https://github.com/RjyavardhanSingh/EventManagement.git"
+    },
+    {
+      "title": "Weather Dashboard",
+      "description": "A React-based weather dashboard that fetches real-time weather data from an API. It includes features such as location-based searches, weather forecasting, and an interactive UI using Tailwind CSS.",
+      "image": "./weather_dashboard_image",
+      "link": "https://github.com/rajyavardhansingh/WeatherDashboard"
+    },
+    {
+      "title": "Portfolio Website",
+      "description": "A personal portfolio website built with React, Vite, Tailwind CSS, and Framer Motion. This site showcases projects, skills, and contact information with dynamic animations.",
+      "image": "./portfolio_image",
+      "link": "https://github.com/rajyavardhansingh/PortfolioWebsite"
+    },
+    {
+      "title": "Chat Application",
+      "description": "A real-time chat application using Node.js, Express, and WebSockets. Users can create rooms, join them, and communicate in real-time with a fully functional chat interface.",
+      "image": "./chat_app_image",
+      "link": "https://github.com/rajyavardhansingh/ChatApp"
+    },
+    {
+      "title": "E-commerce Store",
+      "description": "An e-commerce platform built using React and Firebase. It features product listings, a shopping cart, user authentication, and a payment gateway integration.",
+      "image": "./ecommerce_store_image",
+      "link": "https://github.com/rajyavardhansingh/EcommerceStore"
+    },
+    {
+      "title": "Blog Management System",
+      "description": "A full-stack blog management system developed using the MERN stack (MongoDB, Express, React, Node.js). It includes blog creation, editing, and commenting functionality.",
+      "image": "./blog_management_image",
+      "link": "https://github.com/rajyavardhansingh/BlogManagementSystem"
+    }
+  ]
+  

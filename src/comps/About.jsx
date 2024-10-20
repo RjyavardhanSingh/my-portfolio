@@ -2,8 +2,7 @@ import React from 'react';
 import { FaGithub, FaHtml5, FaCss3Alt, FaJsSquare, FaReact, FaDocker, FaNode } from 'react-icons/fa';
 import { SiTailwindcss, SiMongodb } from 'react-icons/si';
 import { motion } from 'framer-motion'; 
-import { ShootingStars } from '../components/ui/Shooting-Stars';
-import { StarsBackground } from "../components/ui/Stars-Background";
+import { ShootingStarsAndStarsBackgroundDemo } from './bg';
 
 export function AboutSection() {
   const fadeIn = {
@@ -22,11 +21,9 @@ export function AboutSection() {
       className="relative h-screen w-screen flex flex-col justify-center items-center bg-neutral-900 overflow-hidden"
     >
       <div className="absolute inset-0 z-0">
-        <ShootingStars />
-        <StarsBackground />
+        <ShootingStarsAndStarsBackgroundDemo/>
       </div>
 
-     
       <motion.div
         className="relative z-10 w-full max-w-md px-4 text-center sm:hidden"
         initial="hidden"
@@ -39,9 +36,7 @@ export function AboutSection() {
         </p>
       </motion.div>
 
-   
       <div className="hidden sm:flex sm:flex-row sm:space-x-8 w-full justify-center items-center">
-     
         <motion.div
           className="bg-neutral-800 text-white w-auto sm:w-[20rem] h-auto rounded-xl p-6 border border-neutral-700"
           initial="hidden"
@@ -54,7 +49,6 @@ export function AboutSection() {
           </p>
         </motion.div>
 
-     
         <motion.div
           className="bg-neutral-800 text-white w-auto sm:w-[20rem] h-auto rounded-xl p-6 border border-neutral-700"
           initial="hidden"
@@ -67,7 +61,6 @@ export function AboutSection() {
           </p>
         </motion.div>
 
-    
         <motion.div
           className="bg-neutral-800 text-white w-auto sm:w-[20rem] h-auto rounded-xl p-6 border border-neutral-700"
           initial="hidden"
@@ -81,7 +74,6 @@ export function AboutSection() {
         </motion.div>
       </div>
 
-    
       <motion.div
         className="mt-8 text-white text-center"
         initial="hidden"
@@ -89,8 +81,7 @@ export function AboutSection() {
         variants={fadeIn}
       >
         <h3 className="text-2xl font-bold mb-4">Skills</h3>
-        <div className="flex justify-center space-x-4">
-        
+        <div className="grid grid-cols-2 gap-4 sm:grid-cols-5">
           <motion.div whileHover={{ scale: 1.1 }}>
             <FaGithub className="text-black text-3xl" />
           </motion.div>

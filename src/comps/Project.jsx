@@ -3,16 +3,16 @@ import { MouseEnterProvider } from '../components/ui/3D-Card';
 import { CardContainer, CardBody, CardItem } from '../components/ui/3D-Card';
 import { ShootingStars } from '../components/ui/Shooting-Stars';
 import { StarsBackground } from '../components/ui/Stars-Background';
+import projectsData from '../data/projects.json'; 
 
 export function ProjectSection() {
   const [isVisible, setIsVisible] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [projects, setProjects] = useState([]);
 
-  const projects = Array.from({ length: 6 }, (_, index) => ({
-    title: `Project Title ${index + 1}`,
-    description: `This is a brief description of Project ${index + 1}. It showcases skills like React, Tailwind CSS, and API integrations.`,
-    link: 'https://github.com/rajyavardhansingh'
-  }));
+  useEffect(() => {
+    setProjects(projectsData); 
+  }, []);
 
   const nextProject = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % projects.length);
@@ -53,46 +53,48 @@ export function ProjectSection() {
           className="absolute left-4 text-white bg-transparent hover:bg-gray-700 rounded-full p-2"
           onClick={prevProject}
         >
-          &#10094; 
+          &#10094;
         </button>
 
         <MouseEnterProvider>
-          <div
-            key={currentIndex}
-            className={`transform transition-transform duration-700 ${
-              isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-100'
-            }`}
-          >
-            <CardContainer className="inter-var">
-              <CardBody className="relative group/card border border-gray-300 rounded-xl p-6 transition-transform duration-500 ease-in-out bg-transparent">
-                <CardItem translateZ="60" className="text-white text-lg font-bold">
-                  {projects[currentIndex].title}
-                </CardItem>
-                <CardItem
-                  translateZ="60"
-                  className="text-neutral-500 text-sm max-w-sm mt-2 dark:text-neutral-300 opacity-100" // Always visible
-                >
-                  {projects[currentIndex].description}
-                </CardItem>
-                <CardItem translateZ="60" className="absolute bottom-4 text-emerald-500 font-semibold">
-                  <a
-                    href={projects[currentIndex].link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    GitHub Link
-                  </a>
-                </CardItem>
-              </CardBody>
-            </CardContainer>
-          </div>
+          {projects.length > 0 && (
+            <div
+              key={currentIndex}
+              className={`transform transition-transform duration-700 ${
+                isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-100'
+              }`}
+            >
+              <CardContainer className="inter-var">
+                <CardBody className="relative group/card border border-gray-300 rounded-xl p-6 transition-transform duration-500 ease-in-out bg-transparent">
+                  <CardItem translateZ="60" className="text-white text-lg font-bold">
+                    {projects[currentIndex].title}
+                  </CardItem>
+                  <CardItem translateZ="60" className="text-neutral-500 text-sm max-w-sm mt-2 dark:text-neutral-300 opacity-100">
+                    {projects[currentIndex].description}
+                  </CardItem>
+                  <CardItem translateZ="60" className="relative h-40 w-full my-4">
+                    <img src={projects[currentIndex].image} alt={projects[currentIndex].title} className="object-contain h-full w-full" />
+                  </CardItem>
+                  <CardItem translateZ="60" className="absolute bottom-4 text-emerald-500 font-semibold">
+                    <a
+                      href={projects[currentIndex].link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      GitHub Link
+                    </a>
+                  </CardItem>
+                </CardBody>
+              </CardContainer>
+            </div>
+          )}
         </MouseEnterProvider>
 
         <button
           className="absolute right-4 text-white bg-transparent hover:bg-gray-700 rounded-full p-2"
           onClick={nextProject}
         >
-          &#10095; 
+          &#10095;
         </button>
       </div>
     </section>

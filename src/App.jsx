@@ -6,7 +6,8 @@ import { AboutSection } from "./comps/About";
 import { ProjectSection } from "./comps/Project";
 import { FeedbackSection } from "./comps/FeedbackSection";
 import Footer from "./comps/Footer";
-import { motion } from "framer-motion";
+import { Timeline } from "./comps/Timeline";
+import { motion } from "framer-motion"; // Import motion from framer-motion
 
 export default function App() {
   const [paused, setPaused] = useState(false);
@@ -40,44 +41,23 @@ export default function App() {
     }
   };
 
-  const fadeInVariant = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 1 } }
-  };
-
-  // Floating animation for the profile picture
-  const floatingAnimation = {
-    hidden: { y: 0 },
-    visible: {
-      y: [0, -10, 0], // Float up and down
-      transition: {
-        repeat: Infinity,
-        repeatType: "mirror",
-        duration: 3,
-      },
-    },
-  };
-
   return (
     <div className="relative">
       <NavBar onScrollToSection={handleScrollToSection} />
 
-      {/* Home Section */}
-      <motion.section
-        id="home-section"
-        className="relative flex h-screen"
-        initial="hidden"
-        animate="visible"
-        variants={fadeInVariant}
-      >
+      <section id="home-section" className="relative flex h-screen">
         <ShootingStarsAndStarsBackgroundDemo />
 
         {isMobile && (
           <motion.div
             className="absolute top-40 left-0 right-0 flex justify-center z-10"
-            initial="hidden"
-            animate="visible"
-            variants={floatingAnimation}
+            animate={{ y: [0, -10, 0] }} // Floating animation
+            transition={{
+              duration: 3,
+              ease: "easeInOut",
+              repeat: Infinity,
+              repeatType: "mirror",
+            }}
           >
             <img
               src="./pfp.jpeg" 
@@ -104,40 +84,23 @@ export default function App() {
             <ThreeDCardDemo />
           </div>
         )}
-      </motion.section>
+      </section>
 
-      {/* About Section */}
-      <motion.section
-        id="about-section"
-        className="relative flex h-screen"
-        initial="hidden"
-        animate="visible"
-        variants={fadeInVariant}
-      >
+      <section id="about-section" className="relative flex h-screen">
         <AboutSection />
-      </motion.section>
+      </section>
 
-      {/* Projects Section */}
-      <motion.section
-        id="projects-section"
-        className="relative flex h-screen bg-gray-800"
-        initial="hidden"
-        animate="visible"
-        variants={fadeInVariant}
-      >
+      <section id="timeline-section" className="relative flex h-screen bg-gray-800">
+        <Timeline />
+      </section>
+
+      <section id="projects-section" className="relative flex h-screen">
         <ProjectSection />
-      </motion.section>
+      </section>
 
-      {/* Feedback Section */}
-      <motion.section
-        id="feedback-section"
-        className="relative flex h-screen bg-gray-700"
-        initial="hidden"
-        animate="visible"
-        variants={fadeInVariant}
-      >
+      <section id="feedback-section" className="relative flex h-screen">
         <FeedbackSection />
-      </motion.section>
+      </section>
 
       <Footer />
     </div>

@@ -100,6 +100,12 @@ const NavBar = () => {
             About
           </div>
           <div
+            onClick={() => handleScroll("timeline-section")}
+            className="text-white font-mono text-lg hover:text-gray-300 cursor-pointer"
+          >
+            Experice
+          </div>
+          <div
             onClick={() => handleScroll("projects-section")}
             className="text-white font-mono text-lg hover:text-gray-300 cursor-pointer"
           >
@@ -122,6 +128,9 @@ const NavBar = () => {
               </div>
               <div onClick={() => handleScroll("about-section")} className="text-white font-mono text-lg hover:text-gray-300 cursor-pointer bg-transparent">
                 About
+              </div>
+              <div onClick={() => handleScroll("timeline-section")} className="text-white font-mono text-lg hover:text-gray-300 cursor-pointer bg-transparent">
+                Experience
               </div>
               <div onClick={() => handleScroll("projects-section")} className="text-white font-mono text-lg hover:text-gray-300 cursor-pointer bg-transparent">
                 Projects
